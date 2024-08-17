@@ -4,10 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"sahh-mini-cni/pkg/ipam"
-
 	"github.com/containernetworking/cni/pkg/skel"
 	"github.com/containernetworking/cni/pkg/types"
+	"github.com/saiaunghlyanhtet/sahh-mini-cni/pkg/ipam"
 )
 
 // CNIConfig
