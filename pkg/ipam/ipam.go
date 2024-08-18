@@ -3,7 +3,7 @@ package ipam
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"os"
 )
 
 // IPAMConfig represents IPAM configuration
@@ -32,7 +32,7 @@ func ReleaseIP(conf IPAMConfig, ip string) error {
 
 // ExecAdd handles IP allocation
 func ExecAdd(confFile string) (*IPAMResult, error) {
-	data, err := ioutil.ReadFile(confFile)
+	data, err := os.ReadFile(confFile)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read IPAM configuration: %v", err)
 	}
@@ -47,7 +47,7 @@ func ExecAdd(confFile string) (*IPAMResult, error) {
 
 // ExecDel handles IP release
 func ExecDel(confFile string, ip string) error {
-	data, err := ioutil.ReadFile(confFile)
+	data, err := os.ReadFile(confFile)
 	if err != nil {
 		return fmt.Errorf("failed to read IPAM configuration: %v", err)
 	}
